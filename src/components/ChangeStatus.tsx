@@ -12,11 +12,26 @@ const ChangeStatus: React.FC<ChangeStatusProps> = ({ unitName }) => {
         throw new Error("ChangeStatus must be used within a DeploymentProvider");
     }
 
-    const { setUnitStatus } = deploymentContext;
+    const { units, setUnitStatus } = deploymentContext;
+    const currentStatus = units[unitName];
+
+    const handleClick = () => {
+        let newStatus;
+        if (currentStatus === "Idle") {
+            newStatus = "Deployed";
+        } else if (currentStatus === "Deployed") {
+            newStatus = "Complete";
+        } else {
+            newStatus = "Idle"; // Reset to the initial state
+        }
+        setUnitStatus(unitName, newStatus);
+    };
 
     return (
-        <button onClick={() => setUnitStatus(unitName, "Deployed")}>
-            Deploy {unitName}
+        <button onClick={handleClick}>
+            {currentStatus === "Idle" && `Deploy ${unitName}`}
+            {currentStatus === "Deployed" && "Complete"}
+            {currentStatus === "Complete" && `Reset ${unitName}`}
         </button>
     );
 };
