@@ -1,13 +1,16 @@
 import React from 'react';
 import { DeploymentProvider } from './context/DeploymentContext';
+import UnitList from './components/UnitList';
+import MissionCompleted from './components/MissionCompleted';
 // Import UnitList and MissionCompleted components here when they're created
 
 const App: React.FC = () => {
     return (
         <DeploymentProvider>
-            <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+            <div>
                 <h1>IDF Deployment Tracker</h1>
-                {/* Render UnitList component here */}
+                <UnitList/>
+                <MissionCompleted />
                 {/* Render MissionCompleted component here */}
                 <button onClick={() => {
                     // Reset all units to 'Idle' state

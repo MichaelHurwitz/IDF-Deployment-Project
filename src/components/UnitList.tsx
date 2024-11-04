@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import DeploymentContext from '../context/DeploymentContext';
 import UnitStatus from './UnitStatus';
 import styles from '../styles/UnitList.module.css';
+import ChangeStatus from './ChangeStatus';
 
 const UnitList: React.FC = () => {
     const deploymentContext = useContext(DeploymentContext);
@@ -16,7 +17,10 @@ const UnitList: React.FC = () => {
         <div className={styles.unitListContainer}>
             <h2 className={styles.unitTitle}>Unit List</h2>
             {Object.keys(units).map(unit => (
-                <UnitStatus key={unit} unitName={unit} />
+                <div key={unit}>
+                <UnitStatus unitName={unit} />
+                <ChangeStatus unitName={unit} />
+            </div>
             ))}
         </div>
     );
