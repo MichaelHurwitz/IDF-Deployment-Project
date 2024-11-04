@@ -1,0 +1,11 @@
+.unitStatus {
+    margin: 5px 0;
+}
+
+.idleStatus {
+    color: green;
+}
+
+.deployedStatus {
+    color: blue;
+}

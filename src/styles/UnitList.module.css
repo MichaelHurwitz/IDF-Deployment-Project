@@ -1,0 +1,10 @@
+.unitListContainer {
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.unitTitle {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
