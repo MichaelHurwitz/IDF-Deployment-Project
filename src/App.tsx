@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { DeploymentProvider } from './context/DeploymentContext';
+// Import UnitList and MissionCompleted components here when they're created
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+    return (
+        <DeploymentProvider>
+            <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+                <h1>IDF Deployment Tracker</h1>
+                {/* Render UnitList component here */}
+                {/* Render MissionCompleted component here */}
+                <button onClick={() => {
+                    // Reset all units to 'Idle' state
+                }}>
+                    Reset Units
+                </button>
+            </div>
+        </DeploymentProvider>
+    );
+};
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+export default App;
